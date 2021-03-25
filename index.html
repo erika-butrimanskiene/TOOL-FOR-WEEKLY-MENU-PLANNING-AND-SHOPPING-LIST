@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/7034fa63e0.js"></script>
+<body>
+    <main class="box">
+        <h1 class="box__heading">KĄ VALGYSI ŠIĄ SAVAITĘ?</h1>    
+        <section class="box__weekdays-list">
+            <section class="box__weekday-section">
+                <h3 class="box__weekday-name">Pirmadienis</h3>
+                <br>
+                <button class="box__weekday-buttons breakfast-btn">Pasirink pusryčius</button>
+                <br>
+                <button class="box__weekday-buttons lunch-btn">Pasirink pietus</button>
+                <br>
+                <button class="box__weekday-buttons dinner-btn">Pasirink vakarienę</button>
+            </section>
+
+            <section class="box__weekday-section">
+                <h3 class="box__weekday-name ">Antradienis</h3>
+                <br>
+                <button class="box__weekday-buttons breakfast-btn">Pasirink pusryčius</button>
+                <br>
+                <button class="box__weekday-buttons lunch-btn">Pasirink pietus</button>
+                <br>
+                <button class="box__weekday-buttons dinner-btn">Pasirink vakarienę</button>
+            </section>
+
+
+            <section class="box__weekday-section">
+                <h3 class="box__weekday-name">Trečiadienis</h3>
+                <br>
+                <button class="box__weekday-buttons breakfast-btn">Pasirink pusryčius</button>
+                <br>
+                <button class="box__weekday-buttons lunch-btn">Pasirink pietus</button>
+                <br>
+                <button class="box__weekday-buttons dinner-btn">Pasirink vakarienę</button>
+            </section>
+
+            <section class="box__weekday-section">
+                <h3 class="box__weekday-name">Ketvirtadienis</h3>
+                <br>
+                <button class="box__weekday-buttons breakfast-btn">Pasirink pusryčius</button>
+                <br>
+                <button class="box__weekday-buttons lunch-btn">Pasirink pietus</button>
+                <br>
+                <button class="box__weekday-buttons dinner-btn">Pasirink vakarienę</button>
+            </section>
+
+            <section class="box__weekday-section">
+                <h3 class="box__weekday-name">Penktadienis</h3>
+                <br>
+                <button class="box__weekday-buttons breakfast-btn">Pasirink pusryčius</button>
+                <br>
+                <button class="box__weekday-buttons lunch-btn">Pasirink pietus</button>
+                <br>
+                <button class="box__weekday-buttons dinner-btn">Pasirink vakarienę</button>
+            </section>
+
+            <section class="box__weekday-section box__weekday-section--weekend">
+                <h3 class="box__weekday-name box__weekday-name--weekend">Šeštadienis</h3>
+                <br>
+                <button class="box__weekday-buttons breakfast-btn">Pasirink pusryčius</button>
+                <br>
+                <button class="box__weekday-buttons lunch-btn">Pasirink pietus</button>
+                <br>
+                <button class="box__weekday-buttons dinner-btn">Pasirink vakarienę</button>
+            </section>
+
+            <section class="box__weekday-section box__weekday-section--weekend">
+                <h3 class="box__weekday-name box__weekday-name--weekend">Sekmadienis</h3>
+                <br>
+                <button class="box__weekday-buttons breakfast-btn">Pasirink pusryčius</button>
+                <br>
+                <button class="box__weekday-buttons lunch-btn">Pasirink pietus</button>
+                <br>
+                <button class="box__weekday-buttons dinner-btn">Pasirink vakarienę</button>
+            </section>
+            <div id="getProductsListBtnContainer"> 
+                <button id="getProductsListBtn">GAUTI PRODUKTŲ SĄRAŠĄ</button>
+            </div>
+            
+
+            <div id="myModal" class="modal">
+                <div class="modal__content">
+                    <div class="modal-close">
+                        <span class="modal-close__span">&times;</span>
+                    </div>
+                    <div class="modal-list-and-input">
+                        <div class = "myInput-box">
+                            <span class="search-icon"><i class="fa fa-search"></i></span>
+                            <input type="text" id="myInput" placeholder="Search..." autocomplete="off">
+                        </div>
+                        <ul class="modal-list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="myModal_newDish" class="modal_newDish">
+                <div class="modalNewDish_content">
+                    <div class="modalNewDish-close">
+                        <span class="modalNewDish-close__span">&times;</span>
+                    </div>
+                    <div class="add-new-dish-container">
+                        <form action="" id="add-new-dish-list">
+                            <input type="text" id="new-dish-name" name="newDish" placeholder="Įvesk patiekalo pavadinimą">
+                            <p class="choose-category">Pasirink patiekalo kategoriją/-as:</p>
+                            <div class="categories-checkboxes">
+                                <div>
+                                    <input type="checkbox" name="pusryciai" class="input-checkbox" id="breakfast">
+                                    <label for="breakfast">Pusryčiai</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="pietus" class="input-checkbox" id="lunch">
+                                    <label for="lunch">Pietūs</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="vakariene" class="input-checkbox" id="dinner">
+                                    <label for="dinner">Vakarienė</label>
+                                </div>
+                            </div>
+                            <p class="dish-ingridients-label">Patiekalo sudėtis</p>
+                            <div class="dish-ingridients-list">
+                                <table>
+                                    <tbody class="added-ingridients">
+
+                                    </tbody>
+                                </table>
+                
+                                <div class = "search-ingridient-inputs">
+                                    <input type="text" id="product_input" placeholder="surasti produktą" autocomplete="off" required>
+                                    <input type="text" class="product-quantity-input" placeholder="kiekis" required>
+                                    <input type="text" class="product-units-input" placeholder="matas" required>
+                                    <button class="add-ingridient-btn">+</button>
+                                </div>
+                                <p class="ingridients-inputs-alert-message"></p>
+                            </div>
+                            <div class="new-dish-submit-btn-container">
+                                <input type="submit" name="" id="new-dish-submit-btn" value='Išsaugoti'>
+                            </div>
+                            
+                            
+                        </form>
+
+                        <div class="products_list">
+                            <div class="products_list-table-container">
+                                <table>
+                                    <tbody class = "products_list-tbody">
+                                      
+                                    </tbody>
+                                </table>
+                                <button id="new_product_btn">Naujas produktas</button>
+                            </div>
+                            <div class ="new_product_form_container">
+                                <form action="" id = "add-new-product-form">
+                                    <select id="product-category" name="product-category" required>
+                                        <option value="">Pasirink kategoriją</option>
+                                        <option value="Pieno gaminiai ir kiausiniai">Pieno gaminiai ir kiausiniai</option>
+                                        <option value="Vaisiai ir darzoves">Vaisiai ir darzoves</option>
+                                        <option value="Vaisiai ir darzoves">Bakalėja</option>
+                                    </select>
+                                    <input type="text" id="product-name" placeholder="Įveski produktą" required>
+                                    <input type="text" id ="product-unit" placeholder="Mato vnt" required>
+                                    <input  class= "add-product-btn" type="submit" value="+">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
