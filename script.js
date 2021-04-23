@@ -98,7 +98,6 @@ let createDish = () => {
     ]
   );
   dishes.push(lesiuSalotos);
-  console.log(dishes);
 
   let portabeloSuMocorela = new constructorDish(
     5,
@@ -113,7 +112,6 @@ let createDish = () => {
     ]
   );
   dishes.push(portabeloSuMocorela);
-  console.log(dishes);
 
   let batataiSuTunu = new constructorDish(
     6,
@@ -128,7 +126,6 @@ let createDish = () => {
     ]
   );
   dishes.push(batataiSuTunu);
-  console.log(dishes);
 
   let rikotosBlynaiSuLasisa = new constructorDish(
     7,
@@ -144,7 +141,6 @@ let createDish = () => {
     ]
   );
   dishes.push(rikotosBlynaiSuLasisa);
-  console.log(dishes);
 
   let jogurtasSuGranola = new constructorDish(
     8,
@@ -157,7 +153,6 @@ let createDish = () => {
     ]
   );
   dishes.push(jogurtasSuGranola);
-  console.log(dishes);
 };
 
 createDish();
@@ -570,7 +565,39 @@ let createNewDish = () => {
   );
   dishes.push(newDish);
   updateDishList();
+  modalNewDish.style.display = 'none';
+
   return;
+};
+
+//--get products list to shop function
+const getProductsListToShop = (e) => {
+  let allButtons = Array.from(
+    document.querySelectorAll('.box__weekday-buttons')
+  );
+
+  let allIngridients = [];
+
+  allButtons.forEach((button) => {
+    if (
+      button.innerText != 'Pasirink pusryčius' &&
+      button.innerText != 'Pasirink pietus' &&
+      button.innerText != 'Pasirink vakarienę'
+    ) {
+      console.log(button);
+      dishes.find((dish) => {
+        if (dish.dishName === button.innerText) {
+          dish.dishIngredients.forEach((ingredient) => {
+            allIngridients.push(ingredient);
+          });
+        }
+      });
+    }
+  });
+
+  console.log(allIngridients);
+  sessionStorage.setItem('ingridients', JSON.stringify(allIngridients));
+  window.location.href = '/productsList.html';
 };
 
 //EVENTS-LISTENERS
@@ -708,4 +735,10 @@ addNewProductForm.addEventListener('submit', addNewProductToList);
 addNewDishSubmitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   createNewDish();
+});
+
+//--get products list to shop event
+document.getElementById('getProductsListBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  getProductsListToShop(e);
 });
