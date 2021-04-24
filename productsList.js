@@ -8,10 +8,17 @@ function getIngridientsList() {
   products.forEach((product) => {
     output += `
     <div class="products__item">
-          <input type="checkbox" name="${product.name}" id="" />
-          <label for="${product.name}">${product.name}</label>
-          <input type="text" value="${product.quantity}" />
-          <input type="text" value="${product.units}" name="${product.units}"/>
+          <div>
+            <input
+              type="checkbox"
+              name="${product.name}"
+              class="input-checkbox"
+              id="${product.name}"
+            />
+            <label for="${product.name}">${product.name}</label>
+          </div>
+          <input id="${product.name}" type="text" value="${product.quantity}" class="quantity" readonly />
+          <input type="text" value="${product.units}" name="${product.units}" class="units" readonly />
     </div>
     `;
   });

@@ -11,6 +11,7 @@
 /*mobile first*/
 .box {
   width: calc(100vw - (100vw - 100%));
+  min-height: 100vh;
   background-image: url(DSC_8273.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -33,14 +34,72 @@
 }
 
 .products {
-  height: calc(100vh - 120px);
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .products__item {
-  width: 100%;
+  width: 90%;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: Raleway, sans-serif;
+}
+
+.products__item div {
+  width: 70%;
+}
+
+.quantity {
+  margin-right: 10px;
+  text-align: right;
+  padding: 4px 7px 4px 0px;
+  border: none;
+  width: 20%;
+}
+
+.units {
+  border: none;
+  width: 10%;
+  text-align: right;
+  padding: 4px 7px 5px 0px;
+}
+
+.products__item label {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.input-checkbox {
+  display: none;
+}
+
+.input-checkbox + label::before {
+  content: '\2714';
+  background-color: rgb(255, 253, 253);
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  padding-left: 4px;
+  padding-bottom: 6px;
+  margin-right: 7px;
+  vertical-align: center;
+  color: transparent;
+  transition: 0.2s;
+}
+
+.input-checkbox:checked + label::before {
+  background-color: rgb(252, 164, 2);
+  color: white;
+  border: none;
+}
+
+.input-checkbox + label:active::before {
+  transform: scale(0.5);
 }
 
 #getIngridientsList {
@@ -59,5 +118,13 @@
   .box {
     height: 100vh;
     background-position: center bottom;
+  }
+
+  .products {
+    width: 40%;
+  }
+
+  .products__item {
+    width: 60%;
   }
 }

@@ -584,11 +584,25 @@ const getProductsListToShop = (e) => {
       button.innerText != 'Pasirink pietus' &&
       button.innerText != 'Pasirink vakarienę'
     ) {
-      console.log(button);
+      // console.log(button);
+
+      // console.log(allIngridients);
+
       dishes.find((dish) => {
         if (dish.dishName === button.innerText) {
           dish.dishIngredients.forEach((ingredient) => {
-            allIngridients.push(ingredient);
+            if (allIngridients.length > 0) {
+              let existingIngredient = allIngridients.find(
+                (element) => element.name === ingredient.name
+              );
+              if (existingIngredient !== undefined) {
+                existingIngredient.quantity += ingredient.quantity;
+              } else {
+                allIngridients.push(JSON.parse(JSON.stringify(ingredient)));
+              }
+            } else {
+              allIngridients.push(JSON.parse(JSON.stringify(ingredient)));
+            }
           });
         }
       });
